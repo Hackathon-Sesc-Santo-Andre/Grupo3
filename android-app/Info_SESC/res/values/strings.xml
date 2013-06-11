@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">InfoSESC</string>
+    <string name="action_options_activities">Atividades</string>
+    <string name="action_options_facilities">Unidades</string>
+    <string name="action_options_date">Data</string>
+    <string name="action_options_about">Sobre</string>
+    <string name="action_settings">Settings</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="unidade_sesc">Santo André</string>
+    <string name="sesc_program_agenda">Programação de hoje</string>
+    <string name="sesc_map">Como chegar</string>
+    <string name="sesc_about_app">Sobre o aplicativo</string>
+
+</resources>

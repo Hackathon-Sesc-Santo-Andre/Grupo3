@@ -1,0 +1,19 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android" >
+
+     <item
+        android:id="@+id/action_options_activities"
+        android:orderInCategory="110"
+        android:showAsAction="never"
+        android:title="@string/action_options_activities"/>
+    <!-- item
+        android:id="@+id/action_options_date"
+        android:orderInCategory="130"
+        android:showAsAction="never"
+        android:title="@string/action_options_date"/ -->
+    <item
+        android:id="@+id/action_options_about"
+        android:orderInCategory="130"
+        android:showAsAction="never"
+        android:title="@string/action_options_about"/>
+        
+</menu>
