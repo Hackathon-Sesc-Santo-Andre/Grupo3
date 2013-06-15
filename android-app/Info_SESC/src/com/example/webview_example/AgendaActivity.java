@@ -66,7 +66,7 @@ public class AgendaActivity extends Activity {
 		
 		switch (item.getItemId()) {
 			case R.id.action_options_activities:
-				startActivityForResult(new Intent(this, OptionsActivity.class),-1);
+				startActivityForResult(new Intent(this, OptionsActivity.class), 100);
 				break;
 				
 			case R.id.action_options_about:
@@ -85,6 +85,18 @@ public class AgendaActivity extends Activity {
 	private void msgbox(String message) {
     	Toast.makeText(AgendaActivity.this, message, Toast.LENGTH_SHORT).show();
     }
+	
+	@Override
+	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+		//requestCode=100
+		//resultCode=1
+		
+		String[] dado = data.getExtras().getStringArray("chave_do_intent");
+		
+		
+		
+		
+	}
 
 	
 	

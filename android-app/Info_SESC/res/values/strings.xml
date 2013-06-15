@@ -10,7 +10,9 @@
     <string name="hello_world">Hello world!</string>
     <string name="unidade_sesc">Santo André</string>
     <string name="sesc_program_agenda">Programação de hoje</string>
+    <string name="sesc_infos">Informações atuais</string>
     <string name="sesc_map">Como chegar</string>
-    <string name="sesc_about_app">Sobre o aplicativo</string>
+    <string name="sesc_about_app">Sobre</string>
+    <string name="title_activity_info">InfoActivity</string>
 
 </resources>

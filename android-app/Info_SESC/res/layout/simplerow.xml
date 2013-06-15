@@ -1,8 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
-<TextView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/rowTextView"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/RelativeLayout1"
     android:layout_width="fill_parent"
-    android:layout_height="wrap_content"
-    android:padding="10dp"
-    android:textSize="16sp" >
-</TextView> 
+    android:layout_height="fill_parent"
+    android:gravity="right"
+    android:padding="5dp" >
+
+    <CheckBox
+        android:id="@+id/checkbox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:textSize="15dp" />
+
+    <ImageView
+        android:id="@+id/logo"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignTop="@+id/checkbox"
+        android:layout_marginLeft="21dp"
+        android:src="@drawable/ic_launcher" />
+
+    <TextView
+        android:id="@+id/label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/checkbox"
+        android:layout_alignBottom="@+id/checkbox"
+        android:layout_marginLeft="22dp"
+        android:layout_toRightOf="@+id/logo"
+        android:text="exemplo"
+        android:textSize="15dp" />
+
+</RelativeLayout>

@@ -7,7 +7,8 @@
     <uses-sdk
         android:minSdkVersion="8"
         android:targetSdkVersion="17" />
-    <uses-permission android:name="android.permission.INTERNET"/>
+
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
@@ -19,11 +20,33 @@
             android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:theme="@style/AppBaseTheme" android:name="OptionsActivity" android:label="@string/app_name"></activity>
-        <activity android:name="AgendaActivity" android:theme="@style/AppBaseTheme" android:label="@string/app_name"></activity>
+        <activity
+            android:name="com.example.webview_example.OptionsActivity"
+            android:label="@string/app_name"
+            android:theme="@style/AppBaseTheme" >
+        </activity>
+        <activity
+            android:name="com.example.webview_example.AgendaActivity"
+            android:label="@string/app_name"
+            android:theme="@style/AppBaseTheme" >
+        </activity>
+        <activity
+            android:name="com.example.webview_example.RESTActivity"
+            android:label="@string/app_name"
+            android:theme="@style/AppBaseTheme" >
+        </activity>
+        <activity
+            android:name="com.example.webview_example.InfoActivity"
+            android:label="@string/title_activity_info"
+            android:parentActivityName="com.example.webview_example.MainActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.webview_example.MainActivity" />
+        </activity>
     </application>
 
 </manifest>
