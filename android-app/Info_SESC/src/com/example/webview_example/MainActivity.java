@@ -19,7 +19,7 @@ public class MainActivity extends Activity {
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 	    super.onCreate(savedInstanceState);
-	    setContentView(R.layout.activity_main);
+	    setContentView(R.layout.main_activity);
 	    
 	   
 	    a = new AQuery(this);
@@ -89,12 +89,11 @@ public class MainActivity extends Activity {
 	}
 	
 	public void about_button_click() {
-		new About(MainActivity.this).showDialog();		
+		new Helper(MainActivity.this).showAboutDialog();		
 	}
 
 	public void agenda_button_click() {
 		MainActivity.this.startActivityForResult(new Intent(MainActivity.this, AgendaActivity.class),-1);
-	
 	}
 	
 	public void info_button_click() {

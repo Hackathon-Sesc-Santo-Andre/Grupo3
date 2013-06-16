@@ -1,12 +1,12 @@
 package com.example.webview_example;
 
 
-import android.os.Bundle;
+import android.R.bool;
 import android.annotation.SuppressLint;
 import android.app.Activity;
-import android.app.AlertDialog;
-import android.content.DialogInterface;
 import android.content.Intent;
+import android.os.Bundle;
+import android.util.Pair;
 import android.view.GestureDetector;
 import android.view.GestureDetector.SimpleOnGestureListener;
 import android.view.Menu;
@@ -18,23 +18,23 @@ import android.webkit.WebViewClient;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
-import com.example.webview_example.CustomWebView;
-
 
 
 @SuppressLint({ "SimpleDateFormat", "SetJavaScriptEnabled" })
 public class AgendaActivity extends Activity {
 	AgendaSESC myAgenda;
+	Helper h;
 	
 	private CustomWebView myWebView;
 	private ProgressBar progressBar;
-	private boolean javaScriptInjected = false;
+	private Pair<Integer, bool> selectedCategory;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_agenda);
-		
+		setContentView(R.layout.agenda_activity);	    
+	        
+		h = new Helper(this);
 		myAgenda = new AgendaSESC();
 
 		myWebView = (CustomWebView) findViewById(R.id.webView1);
@@ -45,7 +45,7 @@ public class AgendaActivity extends Activity {
 		myWebView.setWebViewClient(new myWebClient());
         myWebView.getSettings().setJavaScriptEnabled(true);
         
-        msgbox("Carregando programação...");
+        h.msgbox("Carregando programação...");
         progressBar.setVisibility(View.VISIBLE);
 		myWebView.loadUrl(myAgenda.getURL());
 
@@ -66,27 +66,22 @@ public class AgendaActivity extends Activity {
 		
 		switch (item.getItemId()) {
 			case R.id.action_options_activities:
-				startActivityForResult(new Intent(this, OptionsActivity.class), 100);
+				startActivityForResult(new Intent(this, OptionsActivity.class), -1);
 				break;
 				
 			case R.id.action_options_about:
-				new About(AgendaActivity.this).showDialog();
+				new Helper(this).showAboutDialog();
 				break;
 				
 			default:
-				// msgbox("ID: "+item.getItemId());
+				// h.msgbox("ID: "+item.getItemId());
 		}
 		return true;
 	
 	}
 
 
-	
-	private void msgbox(String message) {
-    	Toast.makeText(AgendaActivity.this, message, Toast.LENGTH_SHORT).show();
-    }
-	
-	@Override
+	/*@Override
 	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 		//requestCode=100
 		//resultCode=1
@@ -94,9 +89,7 @@ public class AgendaActivity extends Activity {
 		String[] dado = data.getExtras().getStringArray("chave_do_intent");
 		
 		
-		
-		
-	}
+	}*/
 
 	
 	
@@ -120,8 +113,7 @@ public class AgendaActivity extends Activity {
             super.onPageFinished(view, url);
             progressBar.setVisibility(View.GONE);
            	
-			if(!javaScriptInjected) myWebView.loadUrl("javascript:dE=document.getElementsByTagName('div');for (var i=0;i<dE.length;i++) { if(dE[i].id == 'box') dE[i].style.width = 'auto'; } dE=document.getElementsByTagName('table');for (var i=0;i<dE.length;i++) { dE[i].width = '100%'} dE=document.getElementsByTagName('img');dE[3].parentNode.removeChild(dE[3]);dE[1].parentNode.removeChild(dE[1]);dE=document.getElementById('print_text');dE.parentNode.removeChild(dE);"); //document.getElementById('text_imprime').innerHTML = '<br>"+myAgenda.getDateString()+"';");
-           	javaScriptInjected = true;
+			myWebView.loadUrl("javascript:dE=document.getElementsByTagName('div');for (var i=0;i<dE.length;i++) { if(dE[i].id == 'box') dE[i].style.width = 'auto'; } dE=document.getElementsByTagName('table');for (var i=0;i<dE.length;i++) { dE[i].width = '100%'} dE=document.getElementsByTagName('img');dE[3].parentNode.removeChild(dE[3]);dE[1].parentNode.removeChild(dE[1]);dE=document.getElementById('print_text');dE.parentNode.removeChild(dE);"); //document.getElementById('text_imprime').innerHTML = '<br>"+myAgenda.getDateString()+"';");
         }
     }
    
@@ -137,14 +129,13 @@ public class AgendaActivity extends Activity {
 	                    //do your stuff
 	                	
 	                	myAgenda.nextDay();
-	                	msgbox("Data: "+myAgenda.getDateString());
+	                	h.msgbox("Data: "+myAgenda.getDateString());
 	                	
 	                	progressBar.setVisibility(View.VISIBLE);
 	                	
 	                	
 	                	//myWebView.loadUrl("about:blank");
 	                	//myWebView.loadUrl("javascript:document.open();document.close();");
-	                	javaScriptInjected = false;
 	                	myWebView.loadUrl(myAgenda.getURL());
 
 	                	
@@ -154,14 +145,13 @@ public class AgendaActivity extends Activity {
 	                    
 	                	
 	                	myAgenda.prevDay();
-	                	msgbox("Data: "+myAgenda.getDateString());
+	                	h.msgbox("Data: "+myAgenda.getDateString());
 	                	
 	                	
 	                	progressBar.setVisibility(View.VISIBLE);
 	                	
 	                	//myWebView.loadUrl("about:blank");
 	                	//myWebView.loadUrl("javascript:document.open();document.close();");
-	                	javaScriptInjected = false;
 	                	myWebView.loadUrl(myAgenda.getURL());
 
 	            		
@@ -172,19 +162,19 @@ public class AgendaActivity extends Activity {
 	                        && myWebView.getScrollY() >= myWebView.getScale() * (myWebView.getContentHeight() - myWebView.getHeight())) {
 	                    //do your stuff
 	                	
-	                	msgbox("bottom to top");
+	                	h.msgbox("bottom to top");
 	                	
 	                    return true;
 	                } //top to bottom, go to prev document
 	                else if (e2.getY() - e1.getY() > 100 && Math.abs(velocityY) > 800 ) {
 	                    //do your stuff
 	                	
-	                	msgbox("top to bottom");
+	                	h.msgbox("top to bottom");
 	                	
 	                    return true;
 	                } */
 	            } catch (Exception e) { // nothing
-	            	//msgbox("Data: "+dateFormat.format(showdate));
+	            	//h.msgbox("Data: "+dateFormat.format(showdate));
 	            }
 	            return false;
 	        }

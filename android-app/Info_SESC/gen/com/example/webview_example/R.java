@@ -25,37 +25,53 @@ public final class R {
         public static final int welcome_button_margin=0x7f050002;
     }
     public static final class drawable {
-        public static final int ic_launcher=0x7f020000;
-        public static final int sesc_logo=0x7f020001;
-        public static final int sesc_santoandre=0x7f020002;
+        public static final int ic_10=0x7f020000;
+        public static final int ic_11=0x7f020001;
+        public static final int ic_12=0x7f020002;
+        public static final int ic_13=0x7f020003;
+        public static final int ic_14=0x7f020004;
+        public static final int ic_15=0x7f020005;
+        public static final int ic_16=0x7f020006;
+        public static final int ic_17=0x7f020007;
+        public static final int ic_18=0x7f020008;
+        public static final int ic_2=0x7f020009;
+        public static final int ic_3=0x7f02000a;
+        public static final int ic_4=0x7f02000b;
+        public static final int ic_5=0x7f02000c;
+        public static final int ic_6=0x7f02000d;
+        public static final int ic_7=0x7f02000e;
+        public static final int ic_8=0x7f02000f;
+        public static final int ic_9=0x7f020010;
+        public static final int ic_launcher=0x7f020011;
+        public static final int sesc_logo=0x7f020012;
+        public static final int sesc_santoandre=0x7f020013;
     }
     public static final class id {
-        public static final int RelativeLayout1=0x7f09000c;
-        public static final int about_button=0x7f090008;
+        public static final int RelativeLayout1=0x7f090003;
+        public static final int about_button=0x7f09000d;
         public static final int action_options_about=0x7f090010;
         public static final int action_options_activities=0x7f09000f;
         public static final int action_settings=0x7f09000e;
-        public static final int agenda_button=0x7f090005;
-        public static final int checkbox=0x7f09000d;
-        public static final int imageView2=0x7f090003;
-        public static final int infoList=0x7f090002;
-        public static final int info_button=0x7f090006;
-        public static final int label=0x7f09000b;
-        public static final int listView1=0x7f090009;
-        public static final int logo=0x7f09000a;
-        public static final int map_button=0x7f090007;
+        public static final int agenda_button=0x7f09000a;
+        public static final int checkbox=0x7f090006;
+        public static final int imageView2=0x7f090008;
+        public static final int infoList=0x7f090007;
+        public static final int info_button=0x7f09000b;
+        public static final int label=0x7f090005;
+        public static final int listView1=0x7f090002;
+        public static final int logo=0x7f090004;
+        public static final int map_button=0x7f09000c;
         public static final int progressBar5=0x7f090001;
-        public static final int textView2=0x7f090004;
+        public static final int textView2=0x7f090009;
         public static final int webView1=0x7f090000;
     }
     public static final class layout {
-        public static final int activity_agenda=0x7f030000;
-        public static final int activity_info=0x7f030001;
-        public static final int activity_main=0x7f030002;
-        public static final int activity_options=0x7f030003;
-        public static final int activity_rest=0x7f030004;
-        public static final int list_entry=0x7f030005;
-        public static final int simplerow=0x7f030006;
+        public static final int agenda_activity=0x7f030000;
+        public static final int agenda_options_activity=0x7f030001;
+        public static final int agenda_options_row=0x7f030002;
+        public static final int info_activity=0x7f030003;
+        public static final int info_row=0x7f030004;
+        public static final int main_activity=0x7f030005;
     }
     public static final class menu {
         public static final int info=0x7f080000;

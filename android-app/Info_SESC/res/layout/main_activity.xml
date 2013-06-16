@@ -1,0 +1,75 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/sesc_santoandre"
+    tools:context=".MainActivity" >
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="33dp"
+        android:adjustViewBounds="true"
+        android:contentDescription="SESC"
+        android:src="@drawable/sesc_logo" />
+   
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:shadowColor="@android:color/white"
+        android:shadowDx="5"
+        android:shadowDy="5"
+        android:shadowRadius="5"
+        android:text="@string/unidade_sesc"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textSize="40sp"
+        android:textStyle="bold" />
+
+    <Button
+        android:id="@+id/agenda_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textView2"
+        android:layout_centerHorizontal="true"
+        android:layout_marginLeft="@dimen/welcome_button_margin"
+        android:layout_marginTop="15dp"
+        android:text="@string/sesc_program_agenda" />
+
+    <Button
+        android:id="@+id/info_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/agenda_button"
+        android:layout_centerHorizontal="true"
+        android:layout_marginLeft="@dimen/welcome_button_margin"
+        android:layout_marginTop="8dp"
+        android:text="@string/sesc_infos"
+        android:textColor="@android:color/primary_text_light" />
+
+    <Button
+        android:id="@+id/map_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/info_button"
+        android:layout_below="@+id/info_button"
+        android:layout_marginTop="8dp"
+        android:text="@string/sesc_map" />
+
+    <Button
+        android:id="@+id/about_button"
+        android:layout_width="130dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/info_button"
+        android:layout_alignBaseline="@+id/map_button"
+        android:layout_alignBottom="@+id/map_button"
+        android:layout_alignRight="@+id/info_button"
+        android:layout_marginTop="8dp"
+        android:text="@string/sesc_about_app" />
+    
+</RelativeLayout>
