@@ -14,5 +14,6 @@
     <string name="sesc_map">Como chegar</string>
     <string name="sesc_about_app">Sobre</string>
     <string name="title_activity_info">InfoActivity</string>
+    <string name="title_activity_info_details">InfoDetailsActivity</string>
 
 </resources>

@@ -47,6 +47,10 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.example.webview_example.MainActivity" />
         </activity>
+        <activity
+            android:name="com.example.webview_example.InfoDetailsActivity"
+            android:label="@string/title_activity_info_details" >
+        </activity>
     </application>
 
 </manifest>

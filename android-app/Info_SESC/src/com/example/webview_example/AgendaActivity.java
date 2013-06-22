@@ -47,9 +47,7 @@ public class AgendaActivity extends FragmentActivity {
     private List<Fragment> getFragments(){
     	List<Fragment> fList = new ArrayList<Fragment>();
     	Date today = new Date();
-    	/*fList.add(MyFragment.newInstance("Fragment 1"));
-    	fList.add(MyFragment.newInstance("Fragment 2"));
-    	fList.add(MyFragment.newInstance("Fragment 3")); */
+
     	fList.add(MyFragment.newInstance(-1));
     	fList.add(MyFragment.newInstance(0));
     	fList.add(MyFragment.newInstance(1));

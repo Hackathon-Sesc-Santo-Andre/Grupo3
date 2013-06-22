@@ -28,14 +28,16 @@ public class MainActivity extends Activity {
 	    a = new AQuery(this);
 	    h = new Helper(this);
 	    
-	    /*Integer startColor = Color.parseColor("#bbbbbb");
+	    /*  // Set background color fading  
+	    Integer startColor = Color.parseColor("#bbbbbb");
 	    Integer endColor = Color.parseColor("#f0f0f0");
 	    GradientDrawable gd = new GradientDrawable(Orientation.TOP_BOTTOM, 
 	         new int[] { startColor, endColor });
 	    a.id(R.id.mainLayoutView).getView().setBackgroundDrawable(gd);*/
 	    
 	    
-	    /*a.id(R.id.imageView2).animate(R.anim.splash);    
+	    /*  // Animation only 
+	    a.id(R.id.imageView2).animate(R.anim.splash);    
 		a.id(R.id.textView2).animate(R.anim.splash); */
 		
 		ImageView imageSESC = (ImageView) findViewById(R.id.imageView2);
@@ -46,10 +48,7 @@ public class MainActivity extends Activity {
 	    Animation animation = AnimationUtils.loadAnimation(this,R.anim.splash);
 	    imageSESC.startAnimation(animation);
 	    unidadeText.startAnimation(animation);
-	    
-	    
-	    
-	    
+	    	    
 
 	    a.id(R.id.agenda_button).clickable(true).clicked(this, "agenda_button_click");
 	    /* Button agenda_button = (Button)findViewById(R.id.agenda_button);  
@@ -76,7 +75,7 @@ public class MainActivity extends Activity {
         });  */
 	    
 	    a.id(R.id.map_button).clickable(true).clicked(this, "map_button_click");
-	    /*Button map_button = (Button)findViewById(R.id.map_button);  
+	    /* Button map_button = (Button)findViewById(R.id.map_button);  
 	    map_button.setOnClickListener(new OnClickListener() {
         	
         	@Override
@@ -101,7 +100,7 @@ public class MainActivity extends Activity {
         	
         });  */ 
 	    
-	    a.id(R.id.imageButton1).clickable(true).clicked(this, "qrcode_click");
+	    a.id(R.id.imageButton1).clickable(true).clicked(this, "qrcode_button_click");
 	    
 	}
 	
@@ -122,7 +121,7 @@ public class MainActivity extends Activity {
 			       Uri.parse("http://goo.gl/maps/tMv8Q")));
 	}	
 
-	public void qrcode_click() {
+	public void qrcode__button_click() {
 		h.msgbox("qrcode");
 		QRIntentIntegrator qr = new QRIntentIntegrator(this);
 		qr.initiateScan();
