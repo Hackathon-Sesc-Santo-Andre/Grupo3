@@ -1,6 +1,8 @@
 package com.example.webview_example;
 
 import android.annotation.SuppressLint;
+
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
@@ -24,7 +26,8 @@ public class AgendaSESC {
 	public AgendaSESC(Date agendaDate, String categoriesSelected) {
 
 		dateFormat = new SimpleDateFormat("dd/MM/yyyy");
-    	if(agendaDate == null) this.agendaDate = new Date();
+    	if(agendaDate == null)       this.agendaDate = new Date();
+    	else                         this.agendaDate = agendaDate;
     	if(categoriesSelected == "") this.categoriesSelected = categoryIDs;
     	else                         this.categoriesSelected = categoriesSelected;
 	}
@@ -64,7 +67,21 @@ public class AgendaSESC {
 		
 	}
 
-
+	public boolean setDate(Date newDate) {
+			agendaDate = newDate;
+			return true;
+    }
+	
+	/* public boolean setDateString(String date) {
+			try {
+				agendaDate = dateFormat.parse(date);
+				return true;
+			} catch (ParseException e) {
+				//e.printStackTrace();
+				return false;
+			} 
+	} */
+	
 	public String getDateString() {
 		return dateFormat.format(agendaDate);
 	}
@@ -95,5 +112,5 @@ public class AgendaSESC {
           default: return R.drawable.sesc_logo;
        }	
 
-	}
+	} 
 }

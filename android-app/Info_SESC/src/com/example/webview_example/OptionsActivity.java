@@ -33,12 +33,10 @@ public class OptionsActivity extends Activity {
 	    setContentView(R.layout.agenda_options_activity);
 	    
 	    a = new AQuery(this);
-	    h = new Helper(this);
+	    //h = new Helper(this);
 	    
 	    agendaSESC = new AgendaSESC();
-	    
-	    
-	    
+	    	    
 	    // Find the ListView resource.     
 	    //myListView = (ListView) findViewById( R.id.listView1 );
 	    // Set the ArrayAdapter as the ListView's adapter.  
@@ -47,12 +45,15 @@ public class OptionsActivity extends Activity {
 	    // Use custom adapter in order to fill each list item
 	    a.id(R.id.listView1).getListView().setChoiceMode(ListView.CHOICE_MODE_MULTIPLE);
 	    //a.itemSelected(this, "selecttest");
-	    a.adapter(new OptionsArrayAdapter(this, agendaSESC));
+	    //a.adapter(new OptionsArrayAdapter(this, agendaSESC));
+	    a.adapter(new ArrayAdapter<String>(this, android.R.layout.simple_list_item_multiple_choice, AgendaSESC.categoryNames));
+		
+	    
 	    //a.clickable(true).itemClicked(this, "clicktest");
 	    ListView list = (ListView) findViewById(R.id.listView1);
-	    list.setItemsCanFocus(true);
+	    //list.setItemsCanFocus(true);
 	    
-	    list.setOnItemClickListener(new OnItemClickListener() {
+	    /*list.setOnItemClickListener(new OnItemClickListener() {
 	       @Override
 	       public void onItemClick(AdapterView<?> adapter, View view, int position, long arg) {
 	    	   //ListView list = (ListView)adapter.findViewById(R.id.listView1);
@@ -67,7 +68,7 @@ public class OptionsActivity extends Activity {
 	    	  
 	          h.msgbox("teeeeeeeest");
 	       } 
-	    });
+	    });*/
 	    
 	    
 	    
@@ -89,14 +90,25 @@ public class OptionsActivity extends Activity {
 		((TextView) v.findViewById(R.id.label)).setText("test");
 	}*/
 	
-	public void retornarParaOutraActivity(){
+	
+	/** Called when the activity is first created. */
+	@Override
+	public void onPause() {
+		super.onPause();
+		/*Intent intent = new Intent();
+		intent.putExtra("chave_do_intent", "OptionsResult!");
+		setResult(RESULT_OK);
+		finish();*/
+	}	
+	
+	/*public void retornarParaOutraActivity(){
 		Intent intent = new Intent();
 		intent.putExtra("chave_do_intent", new String[]{"1"});
 		setResult(1, intent);
 		finish();
-	}
+	} */
 	
-	public class OptionsArrayAdapter extends ArrayAdapter<String> {
+	/*public class OptionsArrayAdapter extends ArrayAdapter<String> {
 		private final Context context;
 		private final List<String> values;
 		private final List<String> categories;
@@ -124,7 +136,7 @@ public class OptionsActivity extends Activity {
 	 		//a.clickable(true).clicked(this, "onclick");
 	 		/* TextView textView = (TextView) rowView.findViewById(R.id.label);
 			//textView.setText(values.get(position));
-			textView.setText(Html.fromHtml(values.get(position))); */
+			textView.setText(Html.fromHtml(values.get(position))); * /
 	 		
 	 		//ImageView imageView = (ImageView) rowView.findViewById(R.id.logo);
 
@@ -152,7 +164,7 @@ public class OptionsActivity extends Activity {
     	             Toast.makeText(InfoActivity.this, ""+detailList.get(position), Toast.LENGTH_LONG).show();
     	                 }
     	    }); 
-    	    */
+    	    * /
 	        
 	        
 	        
@@ -162,7 +174,7 @@ public class OptionsActivity extends Activity {
 
 	    
 	    
-	}
+	} */
 	
 
-}
+}  

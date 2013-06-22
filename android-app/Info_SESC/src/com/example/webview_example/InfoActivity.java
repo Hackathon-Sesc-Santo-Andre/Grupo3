@@ -45,6 +45,9 @@ public class InfoActivity extends Activity {
 		a = new AQuery(this);
 		h = new Helper(this);
 		
+		//a = new AQuery(this);
+		//a.id(R.id.infoLayoutView).animate(R.anim.up); 
+		
 		String url = "http://192.168.0.100:8080/rest.txt";
 		//String url = "http://192.168.0.213:8080/infosescsa/services/eventos";
 		a.ajax(url, JSONArray.class, this, "jsonCallback");
@@ -135,10 +138,15 @@ public class InfoActivity extends Activity {
 
         }
         
-	}
-        
+	}  
 	// } Google
 	
+	@Override
+	protected void onPause() {
+		super.onPause();
+		finish();
+		overridePendingTransition (R.anim.up, R.anim.down);
+	}
 
 	/* @Override
 	public boolean onCreateOptionsMenu(Menu menu) {
