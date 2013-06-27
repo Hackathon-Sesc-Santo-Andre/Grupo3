@@ -121,7 +121,7 @@ public class MainActivity extends Activity {
 			       Uri.parse("http://goo.gl/maps/tMv8Q")));
 	}	
 
-	public void qrcode__button_click() {
+	public void qrcode_button_click() {
 		h.msgbox("qrcode");
 		QRIntentIntegrator qr = new QRIntentIntegrator(this);
 		qr.initiateScan();
@@ -134,9 +134,13 @@ public class MainActivity extends Activity {
 	}
 	
     public void onActivityResult(int requestCode, int resultCode, Intent intent) {
+    	String detalhes = intent.getExtras().getString("detalhes_evento");
+    	
 	    QRIntentResult scanResult = QRIntentIntegrator.parseActivityResult(requestCode, resultCode, intent);
 	    if (scanResult != null) {
-	    	h.msgbox(scanResult.getContents());
+	    	String result = scanResult.getContents();
+			startActivityWithAnim(new Intent(Intent.ACTION_VIEW, 
+				       Uri.parse("http://"+result)));
 	      // handle scan result
 	    }
 	    // else continue with any other code you need in the method

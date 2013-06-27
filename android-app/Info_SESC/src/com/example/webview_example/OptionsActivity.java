@@ -95,10 +95,10 @@ public class OptionsActivity extends Activity {
 	@Override
 	public void onPause() {
 		super.onPause();
-		/*Intent intent = new Intent();
+		Intent intent = new Intent();
 		intent.putExtra("chave_do_intent", "OptionsResult!");
 		setResult(RESULT_OK);
-		finish();*/
+		finish();
 	}	
 	
 	/*public void retornarParaOutraActivity(){

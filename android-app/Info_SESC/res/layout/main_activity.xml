@@ -81,6 +81,6 @@
         android:layout_toRightOf="@+id/info_button"
         android:adjustViewBounds="true"
         android:scaleType="fitStart"
-        android:src="@drawable/camera" />
+        android:src="@drawable/qrcode" />
     
 </RelativeLayout>

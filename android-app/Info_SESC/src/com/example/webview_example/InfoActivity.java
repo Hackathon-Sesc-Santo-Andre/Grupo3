@@ -10,6 +10,7 @@ import android.R.integer;
 import android.annotation.TargetApi;
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.app.NavUtils;
@@ -49,7 +50,8 @@ public class InfoActivity extends Activity {
 		//a.id(R.id.infoLayoutView).animate(R.anim.up); 
 		
 		String url = "http://192.168.0.100:8080/rest.txt";
-		//String url = "http://192.168.0.213:8080/infosescsa/services/eventos";
+		//String url = "https://raw.github.com/Hackathon-Sesc-Santo-Andre/Grupo3/master/android-app/rest_saulo.txt";
+		//String url = "http://192.168.43.5:8080/infosescsa/services/eventos/";
 		a.ajax(url, JSONArray.class, this, "jsonCallback");
 		//String url = "http://www.google.de/uds/GnewsSearch?q=SESC+Santo+Andre&v=1.0&hl=de";             
 		//a.ajax(url, JSONObject.class, this, "jsonCallback");
@@ -88,8 +90,8 @@ public class InfoActivity extends Activity {
 						} else {
 							description = "";
 						}	
-						if(jsonArray.getJSONObject(i).has("categoria_id")) {
-							category_id = jsonArray.getJSONObject(i).getInt("categoria_id");
+						if(jsonArray.getJSONObject(i).has("categoria")) {
+							category_id = jsonArray.getJSONObject(i).getInt("categoria");
 						} else { 
 							category_id = 0;
 						}
@@ -101,8 +103,8 @@ public class InfoActivity extends Activity {
 						listCategories.add(category_id);
 					}
 
-									
-					a.id(R.id.infoList).adapter(new InfoArrayAdapter(this, listContents, listCategories));
+					a.id(R.id.infoList).clickable(true).itemClicked(this, "infoItemClick");
+					a.adapter(new InfoArrayAdapter(this, listContents, listCategories));
 	        	    
 	        	   
 					/*a.id(R.id.infoList).getListView().setOnItemClickListener(new OnItemClickListener() {
@@ -141,12 +143,23 @@ public class InfoActivity extends Activity {
 	}  
 	// } Google
 	
-	@Override
+	
+	public void infoItemClick(AdapterView parent, View v, int pos, long id) {
+
+		AQuery ac = new AQuery(v);
+		//h.msgbox(ac.id(R.id.label).getText().toString());
+		Intent detailsIntent = new Intent(InfoActivity.this, InfoDetailsActivity.class);
+		detailsIntent.putExtra("description", ac.id(R.id.label).getText().toString());
+		InfoActivity.this.startActivity(detailsIntent);
+}
+	
+	// Animation effect when returning to other activity
+	/*@Override
 	protected void onPause() {
 		super.onPause();
 		finish();
 		overridePendingTransition (R.anim.up, R.anim.down);
-	}
+	} */
 
 	/* @Override
 	public boolean onCreateOptionsMenu(Menu menu) {
@@ -244,4 +257,12 @@ public class InfoActivity extends Activity {
 		
 	}	
 
+	@Override
+	public void onContentChanged() {
+	    super.onContentChanged();
+
+	    View empty = findViewById(R.id.empty);
+	    ListView list = (ListView) findViewById(R.id.infoList);
+	    list.setEmptyView(empty);
+	}
 }

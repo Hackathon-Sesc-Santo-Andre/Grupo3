@@ -16,5 +16,12 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true" >
     </ListView>
+    <TextView
+    android:id="@+id/empty"
+    android:text="Não foi possivel baixar a lista dos eventos atuais. Provavelmente você não está conectado a internet. Por favor verifique a conexão."
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:gravity="center"
+    />
 
 </RelativeLayout>

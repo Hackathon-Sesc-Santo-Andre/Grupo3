@@ -1,8 +1,8 @@
 [ {"data": "2013-06-08T11:10:54.411",
 "descricao": "Quadra Poliesportiva: Fechado para Manuteno da infra Estrutura do Teto, previsÃ£o 10/07/2013",
-"id": 1, "categoria": 2, "categoria_texto": "teatro"}, {"data": "2013-06-08T11:10:54.411",
+"id": 1, "categoria_id": 2, "categoria_texto": "teatro"}, {"data": "2013-06-08T11:10:54.411",
 "descricao": "<b>ALEMANHA GROOVE</b>: A mostra traz alguns dos principais nomes da atual cena Nu jazz presente na Alemanha, em especial na cidade de Berlim.Surgido na dÃ©cada de 90, o Nu jazz faz referÃªncia Ã s misturas de estilos musicais que passam pelo jazz, funk, soul e mÃºsica latina,[...]",
-"id": 2, "categoria": 3, "categoria_texto": "musica"}, {"data": "2013-06-08T11:10:54.411",
+"id": 2, "categoria_id": 3, "categoria_texto": "musica"}, {"data": "2013-06-08T11:10:54.411",
 "descricao": "<p><b>This text is bold</b></p>
 <p><strong>This text is strong</strong></p>
 <p><em>This text is emphasized</em></p>
@@ -11,9 +11,9 @@
 <p>This is<sub> subscript</sub> and <sup>superscript</sup></p>",
 "id": 10}, {"data": "2013-06-08T11:10:54.411",
 "descricao": "ALEMANHA GROOVE: A mostra traz alguns dos principais nomes da atu$",
-"id": 3, "categoria": 5, "categoria_texto": "cultura digital"}, {"data": "2013-06-08T11:10:54.411",
+"id": 3, "categoria_id": 5, "categoria_texto": "cultura digital"}, {"data": "2013-06-08T11:10:54.411",
 "descricao": "ALEMANHA GROOVE: A mostra traz alguns dos principais nomes da atu$",
-"id": 4, "categoria": 2, "categoria_texto": "teatro"}, {"data": "2013-06-08T11:10:54.411",
+"id": 4, "categoria_id": 2, "categoria_texto": "teatro"}, {"data": "2013-06-08T11:10:54.411",
 "descricao": "ALEMANHA GROOVE: A mostra traz alguns dos principais nomes da atu$",
 "id": 5}, {"data": "2013-06-08T11:10:54.411",
 "descricao": "ALEMANHA GROOVE: A mostra traz alguns dos principais nomes da atu$",
