@@ -2,22 +2,19 @@ package com.example.webview_example;
 
 import java.util.Date;
 
-import com.androidquery.AQuery;
-
-import android.content.Intent;
-import android.net.Uri;
+import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.view.GestureDetector;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.View.OnClickListener;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
-import android.widget.Button;
 import android.widget.ProgressBar;
-import android.widget.Toast;
+
+import com.androidquery.AQuery;
+import com.androidquery.callback.AjaxCallback;
+import com.androidquery.callback.AjaxStatus;
 
 public class MyFragment extends Fragment {
 	public static final String EXTRA_MESSAGE = "EXTRA_MESSAGE";
@@ -26,6 +23,7 @@ public class MyFragment extends Fragment {
 	private WebView myWebView;
 	private ProgressBar progressBar;
 	AQuery a;
+	Helper h;
 	
 	public static final MyFragment newInstance(int dayDiff)
 	{
@@ -39,7 +37,9 @@ public class MyFragment extends Fragment {
 	@Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, 
         Bundle savedInstanceState) {
-		View v = null; 
+		    View v = null;
+		    a = new AQuery(this.getActivity());
+		    h = new Helper(this.getActivity());
 		
 		    int dayDifference = getArguments().getInt(EXTRA_MESSAGE);
 
@@ -56,9 +56,23 @@ public class MyFragment extends Fragment {
 			myWebView.setWebViewClient(new myWebClient());
 	        myWebView.getSettings().setJavaScriptEnabled(true);
 	        
-	        //msgbox("Carregando programação...");
+	        //h.msgbox("Carregando programação...");
 	        progressBar.setVisibility(View.VISIBLE);
-			myWebView.loadUrl(myAgenda.getURL());
+	        
+	        a.ajax(myAgenda.getURL(), String.class, new AjaxCallback<String>() {
+
+	            @Override
+	            public void callback(String url, String html, AjaxStatus status) {
+	            	html = "<html lang=\"pt-br\" xmlns=\"http://www.w3.org/1999/xhtml\">"+
+	                       "<head><meta charset=\"UTF-8\"><link rel=\"stylesheet\" href=\"/css/sesc.css?v=0.1\" media=\"all\" /><br />"+
+	                       "<link rel=\"stylesheet\" href=\"/css/sesc.programacao_aulas.css\" media=\"screen\" /></head>" + 
+	            			html +
+	            			"</html>";
+	            	myWebView.loadDataWithBaseURL("http://www.sescsp.org.br/programacao/ajax/", html, "text/html", null, myAgenda.getURL());     
+	            }
+	            
+	        });
+			
 	        //myWebView.loadUrl("http://goo.gl/maps/tMv8Q");
 
 		return v;

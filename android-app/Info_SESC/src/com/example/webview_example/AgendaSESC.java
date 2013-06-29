@@ -11,6 +11,7 @@ public class AgendaSESC {
     private Date agendaDate;
     private SimpleDateFormat dateFormat;
     private String categoriesSelected;
+    private static String DATE_FORMAT = "yyyy-m-d";
     public static String categoryIDs = "2,3,18,4,5,6,7,8,9,10,11,12,13,14,15,16,17";
     public static String[] categoryNames = {"teatro", "música", "circo ", "dança",
 		"cultura digital", "artes plásticas e visuais", "literatura", "cinema e vídeo",
@@ -21,11 +22,11 @@ public class AgendaSESC {
    
     // private int[] facilities; 
 
-    private static String urlHead = "http://www.sescsp.org.br/sesc/programa_new/versao_impressao.cfm?UNIDADE_ID=37&BUSCAR_CURSO=0&Y=12&X=44&BUSCAR_SESC_TV=0&ATIVIDADE_ID=0";
+    private static String urlHead = "http://www.sescsp.org.br/programacao/ajax/filtro.action?unities=37";
 		
 	public AgendaSESC(Date agendaDate, String categoriesSelected) {
 
-		dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+		dateFormat = new SimpleDateFormat(DATE_FORMAT);
     	if(agendaDate == null)       this.agendaDate = new Date();
     	else                         this.agendaDate = agendaDate;
     	if(categoriesSelected == "") this.categoriesSelected = categoryIDs;
@@ -33,7 +34,7 @@ public class AgendaSESC {
 	}
 	
 	public AgendaSESC() {
-		dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+		dateFormat = new SimpleDateFormat(DATE_FORMAT);
     	this.agendaDate = new Date();
         this.categoriesSelected = categoryIDs;
    	}

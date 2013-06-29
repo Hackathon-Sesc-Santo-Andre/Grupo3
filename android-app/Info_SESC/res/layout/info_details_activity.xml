@@ -2,7 +2,8 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent" >
+    android:layout_height="match_parent" 
+    android:background="@drawable/backrepeat">
 
 <RelativeLayout 
     android:layout_width="match_parent"
@@ -13,8 +14,6 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context=".InfoDetailsActivity" >
 
-
-
     <TextView
         android:id="@+id/eventDetails"
         android:layout_width="match_parent"
@@ -23,7 +22,7 @@
         android:layout_alignParentRight="true"
         android:layout_below="@+id/eventTitle"
         android:layout_marginTop="21dp"
-        android:text="TEST! TEST! TEST! TEST! TEST! TEST! TEST! TEST! TEST! TEST! TEST! TEST! TEST! TEST! TEST! TEST! TEST! TEST! TEST! TEST! TEST! TEST! TEST! TEST! TEST! TEST! "
+        android:text="Além de propor um recorte sobre a vasta obra do artista concretista andreense Luiz Sacilotto, a exposição também prevê uma ocupação de vídeo-mapping em uma área próxima à caixa do elevador da unidade, aonde se localiza uma pintura do artista, evidenciando ainda mais a presença da obra instalada permanentemente na Unidade como parte integrante do projeto expositivo."
         android:textAppearance="?android:attr/textAppearanceMedium" />
 
     <TextView
@@ -32,7 +31,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_toRightOf="@+id/categoryImage"
-        android:text="Large Text"
+        android:text="Obras de Luiz Sacilotto"
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
     <ImageView
@@ -42,7 +41,7 @@
         android:layout_alignParentLeft="true"
         android:layout_alignTop="@+id/eventTitle"
         android:layout_marginRight="8dp"
-        android:src="@drawable/ic_10" />
+        android:src="@drawable/ic_2" />
 
     <TextView
         android:id="@+id/compartilharText"
