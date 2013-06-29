@@ -1,0 +1,451 @@
+* {
+	margin: 0;
+	padding: 0
+}
+
+html,body {
+	height: 100%;
+	z-index: 1;
+	font-size: 11px;
+	font-family: Arial, Verdana, Sans-serif;
+	color: #000;
+}
+
+* html #geral {
+	height: 100%;
+}
+
+#geral {
+	width: 100%;
+	min-height: 100% !important;
+	position: relative;
+	margin: 0;
+	padding: 0;
+}
+
+/*---------- TOPO ----------*/
+#topo {
+	width: 100%;
+	height: 84px;
+}
+
+#topo h2 {
+	text-indent: -2000px;
+	float: left;
+	position: relative;
+	margin-top: 14px;
+	margin-left: 55px;
+	height: 70px;
+	width: 130px;
+	_display: inline;
+}
+
+/*--------------- MENU -------------*/
+#menu {
+	width: 100%;
+	height: 31px;
+}
+
+/*------------ CONTEUDO -----------*/
+#conteudo {
+	width: 100%;
+	float: left;
+	margin-bottom: 55px;
+	height: 450px;
+}
+
+#contents {
+	width: 90%;
+	margin-left: 40px;
+	padding-bottom: 55px;
+	min-height: 100%;
+	height: auto !important;
+}
+
+/*-------------RODAPE-------------*/
+#rodape {
+	position: relative;
+	clear: both;
+	margin-top: -55px;
+	width: 100%;
+	height: 55px;
+	text-align: right;
+}
+
+#rodape h4 {
+	font-size: 11px;
+	margin-right: 10px;
+	padding-top: 2px;
+}
+
+#rodape a.comprova {
+	color: #FFF;
+	text-decoration: none;
+}
+
+#rodape a.comprova:hover {
+	color: #000;
+}
+
+#rodape label {
+	color: #666;
+	font-size: 11px;
+	text-align: center;
+	margin-top: 14px;
+}
+
+/*--------------------------------------------------------------------------*/
+/*----------------------             Header             --------------------*/
+/*--------------------------------------------------------------------------*/
+#loginInfo,#loginInfo a {
+	float: right;
+	font: bold 11px Arial, Helvetica, sans-serif;
+	text-decoration: none;
+	color: #FFF;
+	margin-right: 10px;
+	margin-top: 66px;
+}
+
+.login_email {
+	border: 1px solid #5da21d;
+	width: 300px;
+	padding-left: 35px;
+	padding-top: 30px;
+	padding-bottom: 40px;
+}
+
+.login_altera {
+	width: 360px;
+	height: 255px;
+	border: 1px solid #5da21d;
+	padding-top: 30px;
+	padding-left: 60px;
+	padding-bottom: 30px;
+}
+
+/*===========FORMULARIO===========*/
+#fLogin {
+	padding-left: 30px;
+}
+
+.form-background {
+	margin-left: 10px;
+	width: 99%;
+}
+
+.form-background th {
+	width: 150px;
+}
+
+.form-background h2 {
+	text-align: left;
+	font-size: 13px
+}
+
+.button-frame-background {
+	padding-bottom: 10px;
+}
+
+.button {
+	background-color: #73bb2f;
+	color: #FFF;
+	font-weight: normal;
+	border: 1px solid #5da21d;
+	font-size: 11px;
+	margin-right: 4px;
+}
+
+/*--------------------------------------------------------------------------*/
+/*----------------------             Controles          --------------------*/
+/*--------------------------------------------------------------------------*/
+
+/*caixatxt2*/
+input.input,.input input {
+	background-color: #ffffff;
+	border: #5da21d 1px solid;
+	font-size: 11px;
+	padding: 0 2px;
+}
+
+select.input,textarea.input {
+	background-color: #ffffff;
+	border: #5da21d 1px solid;
+	font-size: 11px;
+}
+
+/*--------------------------------------------------------------------------*/
+/*----------------------             Texto              --------------------*/
+/*--------------------------------------------------------------------------*/
+/*Titulo - tit20_aze*/
+.fonte,.label {
+	font-family: Arial, verdana, Sans-serif;
+	font-size: 11px;
+	color: #000;
+}
+
+table {
+	font-size: 11px;
+}
+
+.headeTitle {
+	color: #569518;
+	height: 36px;
+	margin-bottom: 10px;
+}
+
+.mainTitle {
+	font-size: 16px;
+	margin-left: 30px;
+	margin-top: 20px;
+	font-weight: 700;
+}
+
+/*Link*/
+/*link_cinza11px*/
+a:link {
+	color: #214d79;
+	text-decoration: none;
+	font-size: 11px;
+	font-family: Arial, Helvetica, sans-serif;
+}
+
+a:visited {
+	color: #214d79;
+	text-decoration: none;
+	font-size: 11px;
+	font-family: Arial, Helvetica, sans-serif;
+}
+
+a:active {
+	color: #214d79;
+	text-decoration: none;
+	font-size: 11px;
+	font-family: Arial, Helvetica, sans-serif;
+}
+
+a:hover {
+	color: #214d79;
+	text-decoration: underline;
+	font-size: 11px;
+	font-family: Arial, Helvetica, sans-serif;
+}
+
+/*--------------------------------------------------------------------------*/
+/*----------------------             Tabela             --------------------*/
+/*--------------------------------------------------------------------------*/
+.nomecolunaesq,.colunaesq {
+	width: 180px;
+	padding-right: 8px;
+	text-align: right;
+	height: 22px;
+}
+
+.nomecolunaesq {
+	/*display:inline-block;*/
+	
+}
+
+.nomecolunadir,.colunadir {
+	width: 600px;
+	text-align: left;
+	/*display:inline-block;*/
+	/*padding-left:5px;*/
+	height: 22px;
+}
+
+.colunaesqtop {
+	font-size: 14px;
+	font-weight: bold;
+	color: #000;
+}
+
+.colunaesqdivis {
+	font-size: 13px;
+	font-weight: bold;
+	color: #000;
+	margin-top: 10px;
+	display: block;
+}
+
+.espacocoluna {
+	width: 180px;
+	display: block;
+}
+
+.alturacolunadir {
+	height: 22px;
+}
+
+.list-background {
+	border: solid 1px #dfdfdf;
+	border-collapse: collapse;
+}
+
+.list-background td {
+	padding-top: 2px;
+	padding-bottom: 2px;
+	border: solid 1px #dfdfdf;
+}
+
+.list-header,.list-header-relatorio {
+	background-color: #bfbfbf;
+	color: #FFF;
+	padding: 2px 2px 2px 4px;
+	font-size: 11px;
+	min-width: 100px;
+	text-transform: capitalize;
+	text-align: left;
+	white-space: nowrap;
+}
+
+.list-column-checkbox {
+	width: 30px;
+	text-align: center;
+}
+
+/*caixatxtA
+.linhaPar, .list-row-even {
+	color: #000000;
+	background-color: #ffffff;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 9px;
+}*/
+.data-table-background {
+	background-color: #d3e2eb;
+	border: solid 0px #d3e2eb;
+	width: 37%;
+	display: table;
+	border-spacing: 2px;
+	margin-left: 31%;
+}
+
+.input-data-table {
+	background-color: #ffffff;
+	border: none;
+	color: #006699;
+	width: 60%;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	padding: 0 2px;
+}
+
+.list-background-transparent {
+	background-color: transparent;
+	border: 0;
+	display: table;
+	border-spacing: 2px;
+	margin-left: 30px;
+	text-align: left;
+}
+
+td .list-background {
+	width: 100%;
+	margin-left: 0px;
+	display: table;
+}
+
+.numRegistros {
+	width: 100%;
+	text-align: left;
+	margin: 0 auto;
+	padding-bottom: 10px;
+	padding-top: 10px;
+}
+
+#mensagemSucesso {
+	padding: 4px;
+}
+
+/*caixatxtB
+.linhaImpar, .list-row-odd {
+	color: #000000;
+	background-color: #ffffff;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 9px;*/
+}
+.list-header {
+	background-color: #bfbfbf;
+	color: #000;
+	padding: 2px 4px 2px 2px;
+	font-size: 11px;
+	font-weight: bold;
+	text-transform: capitalize;
+	text-align: center;
+}
+
+.list-footer {
+	margin: 0;
+	padding: 0;
+}
+
+.list-column-center {
+	text-align: center;
+}
+
+.novoItem {
+	color: #ff0000;
+	font-size: 9px;
+}
+
+.botao {
+	background-color: transparent;
+	border: 0;
+}
+
+/*-------------- CAMPOS INPUT --------------*/
+.calendario {
+	/*margin-left:4px;
+position:absolute;
+_position:relative;
+_padding-right:10px;
+_display:inline-block;*/
+	position: relative;
+	top: 3px;
+	padding-right: 0px;
+}
+
+.campogrande {
+	width: 265px;
+}
+
+.camposenha {
+	width: 140px;
+}
+
+/*--------------------------------------------------------------------------*/
+/*----------------------         Formulario             --------------------*/
+/*--------------------------------------------------------------------------*/
+/*txt9_arial_cnz*/
+td.label {
+	width: auto;
+}
+
+/*tit16_aze*/
+caption {
+	font-family: Geneva, Arial, Helvetica, sans-serif;
+	font-size: 16px;
+	font-weight: bold;
+	text-decoration: none;
+	color: #868686;
+}
+
+/*--------------------------------------------------------------------------*/
+/*----------------------              Menu              --------------------*/
+/*--------------------------------------------------------------------------*/
+
+/*--------------------------------------------------------------------------*/
+/*----------------------            Mensagens           --------------------*/
+/*--------------------------------------------------------------------------*/
+.message-info {
+	color: #5a86b1;
+	/*font-weight: bold;*/
+}
+
+#message-error {
+	color: #ff0000;
+	font-size: 16px;
+}
+
+.estilotextarea4 {
+	background-color: transparent;
+}

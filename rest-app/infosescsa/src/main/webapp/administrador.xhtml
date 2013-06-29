@@ -1,0 +1,130 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:body>
+	<ui:composition template="/WEB-INF/templates/default/layout.xhtml">
+		<ui:define name="content">
+			<h:form id="form1">
+				<f:metadata>
+						<f:viewParam name="evento_id"></f:viewParam>
+				</f:metadata>
+
+				<p:panel header="Eventos" style="width:100%">
+					<p:panelGrid id="cadastroEvento">
+						<f:facet name="header">Cadastro de Evento</f:facet>
+						<p:row>
+							<p:column colspan="3">
+								<h:outputLabel value="Codigo:" />
+							</p:column>
+							<p:column colspan="4">
+								<p:inputText value="#{eventoMBean.evento.codigoEvento}" />
+							</p:column>
+						</p:row>
+						<p:row>
+							<p:column colspan="3">
+								<h:outputLabel value="Data:" />
+							</p:column>
+							<p:column colspan="4">
+								<p:calendar value="#{eventoMBean.evento.data}" pattern="MM/dd/yyyy HH:mm" />
+							</p:column>
+						</p:row>
+
+						<p:row>
+							<p:column colspan="3">
+								<h:outputLabel value="Titulo: " />
+							</p:column>
+							<p:column colspan="4">
+								<p:inputText value="#{eventoMBean.evento.titulo}" />
+							</p:column>
+						</p:row>											
+						<p:row>
+							<p:column colspan="3">
+								<h:outputLabel value="Categoria: " />
+							</p:column>
+							<p:column colspan="4">
+								<p:inputText value="#{eventoMBean.evento.categoria}" />
+							</p:column>
+						</p:row>
+					
+						<p:row>
+							<p:column colspan="3">
+								<h:outputLabel value="Descricao:" />
+							</p:column>
+							<p:column colspan="6">
+								<p:editor value="#{eventoMBean.evento.descricao}" />
+							</p:column>
+						</p:row>
+						<p:row>
+							<p:column colspan="3">
+								<p:commandButton update="listaEventos"
+									actionListener="#{eventoMBean.salvaEvento}" value="Adicionar"
+									ajax="true" />
+							</p:column>
+							<p:column colspan="3">
+								<p:commandButton update="cadastroEvento"
+									actionListener="#{eventoMBean.limpaEvento}" value="Limpar"
+									ajax="true" />
+							</p:column>
+						</p:row>
+
+					</p:panelGrid>
+				</p:panel>
+				<p:panel header="Eventos" style="width:100%">
+					<p:dataTable id="listaEventos" var="evento"
+						value="#{eventoMBean.listaEventos}" style="width:100%"
+						paginator="true" rows="10"
+						paginatorTemplate="{CurrentPageReport}  
+									   {FirstPageLink} 
+									   {PreviousPageLink} 
+									   {PageLinks} 
+									   {NextPageLink} 
+									   {LastPageLink} 
+									   {RowsPerPageDropdown}">
+						<p:column style="width:2%">
+							<p:rowToggler />
+						</p:column>
+						<p:column headerText="Codigo">
+							<h:outputText value="#{evento.codigoEvento}" />
+						</p:column>
+						<p:column headerText="Evento">
+							<h:outputText value="#{evento.titulo}" />
+						</p:column>
+						<p:column headerText="Evento">
+							<h:outputText value="#{evento.categoria}" />
+						</p:column>
+						<p:column headerText="Data">
+							<h:outputText value="#{evento.data}">
+								    <f:convertDateTime pattern="dd/MM/yyyy HH:mm" timeZone="GMT-03:00"/>  
+							</h:outputText>
+						</p:column>
+						<p:column headerText="QRCode">
+							<h:graphicImage value="resources/qrcode/evento_#{evento.id}.png" />
+						</p:column>
+						<p:column headerText="Alterar">
+							<h:commandLink action="#{eventoMBean.alterarEvento}"
+								value="alterar" update="cadastroEvento">
+								<f:setPropertyActionListener value="#{evento}"
+									target="#{eventoMBean.eventoSelecionado}" />
+							</h:commandLink>
+							<h:outputText value="|" />
+							<h:commandLink action="#{eventoMBean.excluirEvento}"  image="url(#{resource['img:icone_fechar.gif']})" 
+								value="Excluir" update="listaEventos" > 
+								<f:setPropertyActionListener value="#{evento}"
+									target="#{eventoMBean.eventoSelecionado}" />
+							</h:commandLink>
+						</p:column>
+						<p:rowExpansion styleClass="estilotextarea4" style="width:200px">
+							<h:outputText value="#{evento.descricao}" escape="false"/>
+
+						</p:rowExpansion>
+					</p:dataTable>
+				</p:panel>
+			</h:form>
+		</ui:define>
+	</ui:composition>
+</h:body>
+</html>
