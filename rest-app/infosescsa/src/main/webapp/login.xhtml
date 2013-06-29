@@ -1,0 +1,46 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.prime.com.tr/ui"
+	xmlns:h="http://java.sun.com/jsf/html"
+	template="/WEB-INF/templates/default/layoutLogin.xhtml">
+
+	<ui:define name="content">
+		<h:form id="fLogin">
+			<h:panelGrid columns="1" align="center" styleClass="error">
+				<h:messages />
+			</h:panelGrid>
+			<div class="login_email">
+				<h:panelGrid columns="1" cellspacing="2">
+					<h:panelGroup>
+						<h:outputText styleClass="label" value="Email:"
+							style="width:60px; text-align:right; margin-right:5px; display:inline-block;" />
+						<h:inputText styleClass="input camposenha"
+							value="#{loginMBean.usuario.nome}" id="email" />
+					</h:panelGroup>
+
+					<h:panelGroup>
+						<h:outputText styleClass="label" value="Senha:"
+							style="width:60px; text-align:right; margin-right:5px; display:inline-block; padding-top:7px;" />
+						<h:inputSecret styleClass="input camposenha"
+							value="#{loginController.usuario.senha}" id="senha" />
+					</h:panelGroup>
+
+				</h:panelGrid>
+				<h:panelGroup>
+					<h:panelGrid columns="1"
+						style="width:111px;_width:117px; text-align:right;">
+						<p:commandButton id="enviar1" styleClass="button"
+							action="#{loginController.verificaUsuario}" ajax="false"
+							value="Entrar">
+						</p:commandButton>
+					</h:panelGrid>
+
+				</h:panelGroup>
+
+			</div>
+		</h:form>
+
+	</ui:define>
+</ui:composition>

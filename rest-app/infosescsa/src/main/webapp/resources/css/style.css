@@ -1,0 +1,7 @@
+#header {
+    background: none repeat scroll 0 0 #222222;
+    min-height: 100px;
+    min-width: 320px;
+    overflow: hidden;
+    position: relative;
+}

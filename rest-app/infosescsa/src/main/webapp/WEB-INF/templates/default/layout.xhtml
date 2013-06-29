@@ -1,0 +1,75 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.prime.com.tr/ui">
+
+<!--<ui:composition template="">-->
+<!--</ui:composition>-->
+
+<f:view contentType="text/html">
+	<h:head>
+		<title>::: INFOSESC
+			:::::::::::::::::::::::::::::::::::::::::::::::::</title>
+		<h:outputStylesheet name="css/stylesheet.css" />
+	</h:head>
+
+	<h:body>
+		<div id="geral">
+			<div id="topo"
+				style="background: url(#{resource['img:defaultColor.png']}">
+				<h2 style="background: url(#{resource['img:infosesc.png']}">INFOSESC</h2>
+
+				<!--		<h:outputText value="Usuário:#{loginBean.nome}"-->
+				<!--			rendered="#{!empty loginBean.nome}" id="loginInfo" />-->
+			</div>
+			<div id="menu">
+				<h:form >
+					<p:growl id="messages" />
+					<p:menubar autoSubmenuDisplay="true">
+						<p:submenu label="File" icon="ui-icon-document">
+							<p:submenu label="New" icon="ui-icon-contact">
+								<p:menuitem value="Project" url="#" />
+								<p:menuitem value="Other" url="#" />
+							</p:submenu>
+							<p:menuitem value="Open" url="#" />
+							<p:separator />
+							<p:menuitem value="Quit" url="#" />
+						</p:submenu>
+
+						<p:submenu label="Edit" icon="ui-icon-pencil">
+							<p:menuitem value="Undo" url="#"
+								icon="ui-icon-arrowreturnthick-1-w" />
+							<p:menuitem value="Redo" url="#"
+								icon="ui-icon-arrowreturnthick-1-e" />
+						</p:submenu>
+					</p:menubar>
+				</h:form>
+			</div>
+			<div id="conteudo">
+				<!-- 				style="background:url(#{resource['img:fundo.jpg']});"> -->
+				<div style="clear: both;"></div>
+				<div id="messageSummary">
+					<ui:insert name="messageSummary"></ui:insert>
+				</div>
+				<div id="contents">
+					<ui:insert name="content"></ui:insert>
+					<div style="clear: both;"></div>
+				</div>
+			</div>
+			<div style="clear: both;"></div>
+		</div>
+
+<!-- 		<div id="rodape"> -->
+<!-- 			<div -->
+<!-- 				style="width: 100%; margin: auto; position: relative; text-align: center; margin-top: 14px;"> -->
+<!-- 				<label>© 2013 INFOSESC - GRUPO3</label> -->
+<!-- 			</div> -->
+<!-- 		</div> -->
+
+
+
+	</h:body>
+</f:view>
+</html>

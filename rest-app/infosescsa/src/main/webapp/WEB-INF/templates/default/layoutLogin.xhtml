@@ -1,0 +1,124 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.prime.com.tr/ui">
+
+<!--<ui:composition template="">-->
+<!--</ui:composition>-->
+
+<f:view contentType="text/html">
+	<h:head>
+		<title>SIGMAH
+			V2:::::::::::::::::::::::::::::::::::::::::::::::::</title>
+
+		<h:outputStylesheet name="css/base.css" />
+		<h:outputStylesheet name="css/scw2.css" />
+		<h:outputStylesheet name="css/stylesheet.css" />
+		<h:outputStylesheet name="css/theme.css" />
+	
+	</h:head>
+
+	<h:body>
+		<div id="geral">
+			<div id="topo" style="
+								width:100%;
+								height:84px;
+								background:url(resources/img/defaultColor.png">
+				<h2>SIGMAH V2</h2>
+
+				<!--		<h:outputText value="Usuário:#{loginBean.nome}"-->
+				<!--			rendered="#{!empty loginBean.nome}" id="loginInfo" />-->
+			</div>
+			
+			<div id="conteudo">
+		
+				<div id="contents">
+					<ui:insert name="content"></ui:insert>
+					<div style="clear: both;"></div>
+				</div>
+			</div>
+			<div style="clear: both;"></div>
+		</div>
+
+
+		<div id="rodape">
+
+			<div
+				style="width: 100%; margin: auto; position: relative; text-align: center; margin-top: 14px;">
+				<label>© 2008 SIGMAH</label>
+			</div>
+		</div>
+
+
+
+	</h:body>
+</f:view>
+</html>
+
+<!--<head>-->
+<!--	<ui:insert name="js" />-->
+<!--	<ui:insert name="css" />-->
+<!--	<title><ui:insert name="title"></ui:insert></title>-->
+<!--	<META HTTP-EQUIV="PRAGMA" CONTENT="NO-CACHE" />-->
+<!--</head>-->
+<!---->
+<!--<body id="contentsExternal">-->
+<!--	<div id="geral">-->
+<!--		<div id="topo">-->
+<!--			<h2>Logo Ace</h2>-->
+<!--<h:outputText value="Usuário:#{loginBean.nome}"-->
+<!--	rendered="#{!empty loginBean.nome}" id="loginInfo" />-->
+<!--</div>-->
+<!--		<div id="menu">-->
+<!--			<h:form id="formMenu">-->
+<!--				<div style="">-->
+<!--					<ui:insert name="menu" />-->
+<!--				</div>-->
+<!--			</h:form>-->
+<!--		</div>-->
+<!--		<div id="conteudo">-->
+<!--			<div class="headeTitle">-->
+<!--				<div class="mainTitle" id="ctitle">-->
+<!--					<ui:insert name="title"></ui:insert>-->
+<!--				</div>-->
+<!--			</div>-->
+<!--			<div style="clear: both;"></div>-->
+<!--			<div id="messageSummary">-->
+<!--				<ui:insert name="messageSummary"></ui:insert>-->
+<!--			</div>-->
+<!--			<div id="contents">-->
+<!--				<ui:insert name="content"></ui:insert>-->
+<!--				<div style="clear: both;"></div>-->
+<!--			</div>-->
+<!--		</div>-->
+<!--		<div style="clear: both;"></div>-->
+<!--	</div>-->
+<!---->
+<!---->
+<!--	<div id="rodape">-->
+<!--		<h4>-->
+<!--			<a href="http://www.comprova.com" alt="comprova.com" target="_blank"-->
+<!--				class="comprova"> Tecnologia Comprova</a>-->
+<!--		</h4>-->
+<!--		<div-->
+<!--			style="width: 100%; margin: auto; position: relative; text-align: center; margin-top: 14px;">-->
+<!--			<label>© 2010 ACE Seguros</label>-->
+<!--		</div>-->
+<!--	</div>-->
+<!---->
+<!---->
+<!--	<div id="prindialogue"-->
+<!--		style="display: none; width: 100%; position: absolute; top: 0%; height: 200%">-->
+<!--		<span id="shadediv"-->
+<!--			style="border-right: windowtext 1pt solid; border-top: windowtext 1pt solid; display: none; filter: alpha(opacity =       50); border-left: windowtext 1pt solid; width: 100%; color: #000000; border-bottom: windowtext 1pt solid; height: 200%; background-color: silver; opacity: .50; -moz-opacity: 0.5">-->
+<!--		</span> <span id="dialoguediv"-->
+<!--			style="border-right: windowtext 0pt solid; border-top: windowtext 0pt solid; display: none; left: 400px; border-left: windowtext 0pt solid; width: 150px; border-bottom: windowtext 0pt solid; position: absolute; top: 300px; height: 200%">-->
+<!--			<center>-->
+<!--				<img width="100" src="iconCarregando.gif"></img>-->
+<!--			</center> </span>-->
+<!--	</div>-->
+<!--	</div>-->
+<!--	-->
+<!--</body>-->
