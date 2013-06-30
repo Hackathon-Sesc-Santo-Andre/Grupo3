@@ -35,6 +35,7 @@ public class InfoActivity extends Activity {
 	AQuery a;
 	Helper h;
 	List<String> detailList;
+	private static int MAX_DESC_LEN = 30;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -49,9 +50,10 @@ public class InfoActivity extends Activity {
 		//a = new AQuery(this);
 		//a.id(R.id.infoLayoutView).animate(R.anim.up); 
 		
-		String url = "http://192.168.0.100:8080/rest.txt";
+		//String url = "http://192.168.0.100:8080/rest.txt";
+		//String url = "http://192.168.43.172/rest.txt";
 		//String url = "https://raw.github.com/Hackathon-Sesc-Santo-Andre/Grupo3/master/android-app/rest_saulo.txt";
-		//String url = "http://192.168.43.5:8080/infosescsa/services/eventos/";
+		String url = "http://192.168.43.5:8080/infosescsa/services/eventos/";
 		a.ajax(url, JSONArray.class, this, "jsonCallback");
 		//String url = "http://www.google.de/uds/GnewsSearch?q=SESC+Santo+Andre&v=1.0&hl=de";             
 		//a.ajax(url, JSONObject.class, this, "jsonCallback");
@@ -63,17 +65,18 @@ public class InfoActivity extends Activity {
 	//if(jsonRoot != null) {	 // Google
 		//JSONArray jsonArray = jsonRoot.getJSONObject("responseData").getJSONArray("results");   // Google
  
-		h.msgbox("jsonCallback");
+		//h.msgbox("jsonCallback");
 		if(jsonArray != null){               
                 //msgbox(json.toString());  
     	    	//JSONArray jsonArray;
     	    	
-				    
 					//jsonArray = json.getJSONArray("responseData");   // Google?
         			String description = "";
+        			String title = "";
         			int category_id = 0;
         			
 					int length = jsonArray.length();
+					List<String> listTitles = new ArrayList<String>(length);
 					List<String> listContents = new ArrayList<String>(length);
 					List<Integer> listCategories = new ArrayList<Integer>(length);
 					
@@ -85,11 +88,16 @@ public class InfoActivity extends Activity {
 						//listContents.add(jsonArray.getJSONObject(i).getString("unescapedUrl")); //Google			
 						//detailList.add(jsonArray.getJSONObject(i).getString("titleNoFormatting")); //Google
 						
+						if(jsonArray.getJSONObject(i).has("titulo")) {
+						    title = jsonArray.getJSONObject(i).getString("titulo") + "<br />" + jsonArray.getJSONObject(i).getString("data").replace("T"," às ");
+						    //h.msgbox(title);
+						}
+
 						if(jsonArray.getJSONObject(i).has("descricao")) {
-						    description = jsonArray.getJSONObject(i).getString("descricao");
-						} else {
-							description = "";
-						}	
+							description = jsonArray.getJSONObject(i).getString("descricao");
+						} 
+						
+						
 						if(jsonArray.getJSONObject(i).has("categoria")) {
 							category_id = jsonArray.getJSONObject(i).getInt("categoria");
 						} else { 
@@ -99,12 +107,13 @@ public class InfoActivity extends Activity {
 						// Add content to list
 						detailList.add(description);
 						//listContents.add(description.split(":",2)[0]);
+						listTitles.add(title);
 						listContents.add(description);
 						listCategories.add(category_id);
 					}
 
 					a.id(R.id.infoList).clickable(true).itemClicked(this, "infoItemClick");
-					a.adapter(new InfoArrayAdapter(this, listContents, listCategories));
+					a.adapter(new InfoArrayAdapter(this, listTitles, listContents, listCategories));
 	        	    
 	        	   
 					/*a.id(R.id.infoList).getListView().setOnItemClickListener(new OnItemClickListener() {
@@ -149,7 +158,9 @@ public class InfoActivity extends Activity {
 		AQuery ac = new AQuery(v);
 		//h.msgbox(ac.id(R.id.label).getText().toString());
 		Intent detailsIntent = new Intent(InfoActivity.this, InfoDetailsActivity.class);
-		detailsIntent.putExtra("description", ac.id(R.id.label).getText().toString());
+		detailsIntent.putExtra("title", ac.id(R.id.infoTitle).getText().toString());
+		detailsIntent.putExtra("description", ac.id(R.id.infoDesc).getText().toString());
+		//detailsIntent.putExtra("description", ac.id(R.id.label).getText().toString());
 		InfoActivity.this.startActivity(detailsIntent);
 }
 	
@@ -197,14 +208,16 @@ public class InfoActivity extends Activity {
 
 	private class InfoArrayAdapter extends ArrayAdapter<String> {
 		private final Context context;
+		private final List<String> titles;		
 		private final List<String> values;
 		private final List<Integer> categories;
 		private AQuery a;
 	 
-		public InfoArrayAdapter(Context context, List<String> listContents, List<Integer> listCategories) {
+		public InfoArrayAdapter(Context context, List<String> listTitles, List<String> listContents, List<Integer> listCategories) {
 			super(context, R.layout.info_row, listContents);
 			this.context = context;
 			this.values = listContents;
+			this.titles = listTitles;
 			this.categories = listCategories;
 		}
 	 
@@ -218,7 +231,8 @@ public class InfoActivity extends Activity {
 			
 	 		a = new AQuery(rowView);
 	 		
-	 		a.id(R.id.label).text(Html.fromHtml(values.get(position)));
+	 		a.id(R.id.infoTitle).text(Html.fromHtml(titles.get(position)));
+	 		a.id(R.id.infoDesc).text(Html.fromHtml(values.get(position)));
 	 		/* TextView textView = (TextView) rowView.findViewById(R.id.label);
 			//textView.setText(values.get(position));
 			textView.setText(Html.fromHtml(values.get(position))); */

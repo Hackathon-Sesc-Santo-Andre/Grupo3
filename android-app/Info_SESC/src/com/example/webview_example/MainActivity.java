@@ -1,21 +1,23 @@
 package com.example.webview_example;
 
-import android.app.Activity;
+import roboguice.activity.RoboActivity;
 import android.content.Intent;
-import android.graphics.Color;
-import android.graphics.drawable.GradientDrawable;
-import android.graphics.drawable.GradientDrawable.Orientation;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Vibrator;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.androidquery.AQuery;
+import com.google.inject.Inject;
 
-public class MainActivity extends Activity {
-    
+public class MainActivity extends RoboActivity {
+       
+	@Inject
+	Vibrator vibrar; 
+	
 	AQuery a;
 	Helper h;
     
@@ -122,7 +124,7 @@ public class MainActivity extends Activity {
 	}	
 
 	public void qrcode_button_click() {
-		h.msgbox("qrcode");
+		//h.msgbox("qrcode");
 		QRIntentIntegrator qr = new QRIntentIntegrator(this);
 		qr.initiateScan();
 		
@@ -134,15 +136,31 @@ public class MainActivity extends Activity {
 	}
 	
     public void onActivityResult(int requestCode, int resultCode, Intent intent) {
-    	String detalhes = intent.getExtras().getString("detalhes_evento");
-    	
-	    QRIntentResult scanResult = QRIntentIntegrator.parseActivityResult(requestCode, resultCode, intent);
-	    if (scanResult != null) {
-	    	String result = scanResult.getContents();
-			startActivityWithAnim(new Intent(Intent.ACTION_VIEW, 
-				       Uri.parse("http://"+result)));
-	      // handle scan result
-	    }
+    	//String detalhes = intent.getExtras().getString("detalhes_evento");
+    	if (resultCode == RESULT_OK) {
+			QRIntentResult scanResult = QRIntentIntegrator.parseActivityResult(
+					requestCode, resultCode, intent);
+			if (scanResult != null) {
+				String result = scanResult.getContents();
+				if (result.length() > 0) {
+					
+					// Get instance of Vibrator from current Context
+					//Vibrator v = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
+					 
+					// Vibrate for 300 milliseconds
+					vibrar.vibrate(100);
+					
+					// if (result.
+					// startActivityWithAnim(new Intent(Intent.ACTION_VIEW,
+					// Uri.parse("http://"+result)))
+					Intent detailsIntent = new Intent(MainActivity.this,
+							InfoDetailsActivity.class);
+					detailsIntent.putExtra("event", 12345);
+					startActivityWithAnim(detailsIntent);
+					// handle scan result
+				}
+			}
+    	}
 	    // else continue with any other code you need in the method
 
 }

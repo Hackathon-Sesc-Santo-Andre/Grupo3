@@ -35,9 +35,13 @@ public class InfoDetailsActivity extends Activity {
 		h = new Helper(this);
         
      	Intent detailsIntent= getIntent(); // gets the previously created intent
-		String descriptionText = detailsIntent.getStringExtra("description"); // will return "FirstKeyValue"
-		
-		//a.id(R.id.eventDetails).text(descriptionText);
+		if (detailsIntent.getStringExtra("description") != null) {
+			a.id(R.id.eventDetails).text(detailsIntent.getStringExtra("description")); // will return Event-Description
+		}
+		if (detailsIntent.getStringExtra("title") != null) {
+			a.id(R.id.eventTitle).text(detailsIntent.getStringExtra("title")); // will return Event-Title
+		}
+				
         a.id(R.id.shareButton).clickable(true).clicked(this, "autenticar");
     }
     
